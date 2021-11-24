@@ -1,4 +1,3 @@
-#!/bin/sh
+mkdir -p $out/share/plymouth/themes/musicaloft-rainbow/
+cp -r src/* $out/share/plymouth/themes/musicaloft-rainbow/
 
-sudo mkdir -p /usr/share/plymouth/themes/musicaflight_rainbow
-sudo cp -r * /usr/share/plymouth/themes/musicaflight_rainbow
