@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=Musicaflight Rainbow
-Description=A rainbow Musicaflight boot splash
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/musicaflight_rainbow
-ScriptFile=/usr/share/plymouth/themes/musicaflight_rainbow/musicaflight_rainbow.script

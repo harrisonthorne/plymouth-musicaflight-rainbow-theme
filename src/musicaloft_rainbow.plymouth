@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Musicaloft Rainbow
+Description=A rainbow Musicaloft boot splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/musicaloft_rainbow
+ScriptFile=/usr/share/plymouth/themes/musicaloft_rainbow/musicaloft_rainbow.script
