@@ -9,28 +9,34 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, flake-compat }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-      in
-      rec {
-        packages.plymouth-theme-musicaloft-rainbow =
-          derivation {
-            inherit system;
-            name = "plymouth-theme-musicaloft-rainbow";
-            builder = "${pkgs.bash}/bin/bash";
-            src = ./src;
-            args = [
-              "-c"
 
-              ''
-              ${pkgs.coreutils}/bin/mkdir -p $out/share/plymouth/themes/musicaloft-rainbow/
-              ${pkgs.coreutils}/bin/cp -r $src/* $out/share/plymouth/themes/musicaloft-rainbow/
-              ''
-            ];
+        plymouth-theme-musicaloft-rainbow-package =
+          pkgs.stdenv.mkDerivation {
+            pname = "plymouth-theme-musicaloft-rainbow";
+            version = "0.0.1";
+
+            src = ./.;
+
+            buildInputs = [];
+
+            configurePhase = "mkdir -pv $out/share/plymouth/themes/";
+            dontBuild = true;
+            installPhase = ''
+              ls -l
+              cp -rv musicaloft-rainbow/ $out/share/plymouth/themes/
+              substituteInPlace $out/share/plymouth/themes/musicaloft-rainbow/musicaloft-rainbow.plymouth \
+                --replace "/usr/" "$out/"
+            '';
           };
-        defaultPackage = packages.plymouth-theme-musicaloft-rainbow;
+      in
+      {
+        packages.plymouth-theme-musicaloft-rainbow =
+          plymouth-theme-musicaloft-rainbow-package;
+        defaultPackage = plymouth-theme-musicaloft-rainbow-package;
       }
     );
 }
