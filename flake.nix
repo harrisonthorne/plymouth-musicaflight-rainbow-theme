@@ -27,7 +27,6 @@
               configurePhase = "mkdir -pv $out/share/plymouth/themes/";
               dontBuild = true;
               installPhase = ''
-                ls -l
                 cp -rv musicaloft-rainbow/ $out/share/plymouth/themes/
                 substituteInPlace $out/share/plymouth/themes/musicaloft-rainbow/musicaloft-rainbow.plymouth \
                   --replace "/usr/" "$out/"
