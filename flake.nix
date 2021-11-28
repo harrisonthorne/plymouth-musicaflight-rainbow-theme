@@ -36,9 +36,6 @@
         {
           packages.plymouth-theme-musicaloft-rainbow = package;
           defaultPackage = package;
-          overlay = final: prev: {
-            plymouth-theme-musicaloft-rainbow = package;
-          };
         }
       );
     in
