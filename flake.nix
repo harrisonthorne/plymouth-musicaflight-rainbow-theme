@@ -20,7 +20,7 @@
               pname = "plymouth-theme-musicaloft-rainbow";
               version = "0.0.1";
 
-              src = ./.;
+              src = builtins.path { path = ./.; name = "plymouth-theme-musicaloft-rainbow"; };
 
               buildInputs = [ ];
 
