@@ -1,6 +1,7 @@
 [Plymouth Theme]
 Name=Musicaloft Rainbow
 Description=A rainbow Musicaloft boot splash
+Comment=created by Harrison Thorne (@harrisonthorne) with scripting help from Aditya Shakya (@adi1090x)
 ModuleName=script
 
 [script]
